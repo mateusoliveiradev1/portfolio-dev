@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globais adicionais */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #0a0a0a;
+  color: #fff;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  background-image: radial-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 0
+    ),
+    radial-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 0);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "// Liiiraa DevGPT - Fullstack Supremo\nconst dev = 'Liiiraa DevGPT';\nconst stack = ['Next.js', 'TypeScript', 'TailwindCSS', 'Framer Motion'];\n\nfunction transform(idea) {\n  return `${dev} transforma ${idea} em produção`;\n}\n\nconst resultado = transform('qualquer sistema');\nconsole.log(resultado);\n\n// 🔐 Segurança, ⚡ Performance, 🎨 Design, 🚀 Deploy";
+  white-space: pre;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  color: rgba(255, 255, 255, 0.035);
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  animation: scrollCode 60s linear infinite;
+  background: transparent;
+}
+
+@keyframes scrollCode {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  z-index: auto;
+}
+
+/* Botão voltar ao topo */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.75rem 1rem;
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 50;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.back-to-top:hover {
+  transform: scale(1.1);
+}

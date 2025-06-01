@@ -1,0 +1,36 @@
+{
+  "name": "dev-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "framer-motion": "^12.15.0",
+    "lucide-react": "^0.511.0",
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-confetti": "^6.4.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-parallax-tilt": "^1.7.296"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/node": "22.15.29",
+    "autoprefixer": "^10.4.21",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.1.0",
+    "jsdom": "^24.0.0",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.4.2",
+    "vitest": "^1.5.2"
+  }
+}
