@@ -11,10 +11,20 @@ import {
   Users,
   Trophy,
   CheckCircle,
+  type LucideIcon,
 } from "lucide-react";
 import { useRef, useEffect, useState } from "react";
 
-const timeline = [
+interface TimelineItem {
+  year: string;
+  title: string;
+  desc: string;
+  icon: LucideIcon;
+  color: string;
+  badge: string;
+}
+
+const timeline: TimelineItem[] = [
   {
     year: "2020",
     title: "Início na programação",
@@ -57,7 +67,7 @@ const timeline = [
   },
 ];
 
-const valoresTimeline = [
+const valoresTimeline: TimelineItem[] = [
   {
     year: "Compromisso",
     title: "Excelência Técnica",
@@ -84,7 +94,7 @@ const valoresTimeline = [
   },
 ];
 
-const stackTimeline = [
+const stackTimeline: TimelineItem[] = [
   {
     year: "Frontend",
     title: "Stack Moderna",
@@ -113,7 +123,7 @@ const stackTimeline = [
 
 export default function About() {
   const [tab, setTab] = useState("stack");
-  const timelineRef = useRef(null);
+  const timelineRef = useRef<HTMLOListElement | null>(null);
 
   useEffect(() => {
     if (timelineRef.current) {
@@ -127,7 +137,7 @@ export default function About() {
     exit: { opacity: 0, y: -20 },
   };
 
-  const renderTimeline = (items) => (
+  const renderTimeline = (items: TimelineItem[]) => (
     <motion.ol
       ref={timelineRef}
       initial={{ opacity: 0 }}
