@@ -20,9 +20,6 @@ export default function Home() {
       </Head>
       <main className="bg-black text-white">
         <div id="top" />
-        {/* Ensure all components exist and are named correctly */}
-        {/* Consider wrapping sections in error boundaries or dynamic imports to help diagnose future issues */}
-        {/* Add test components to verify successful rendering */}
         <section>
           <Hero />
         </section>
