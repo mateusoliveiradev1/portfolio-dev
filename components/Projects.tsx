@@ -1,10 +1,21 @@
 // Componente Projects com melhorias: filtro por tags, dark/light toggle, e navegação acessível
 import { useState, useEffect } from "react";
+
+interface Project {
+  title: string;
+  description: string;
+  tech: string[];
+  status: string;
+  category: string;
+  tags: string[];
+  link: string;
+  image: string;
+}
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
 import { LayoutGrid, ExternalLink, XCircle, Moon, Sun } from "lucide-react";
 
-const projects = [
+const projects: Project[] = [
   {
     title: "Painel SaaS Admin",
     description: "Dashboard com autenticação, gerenciamento e analytics.",
@@ -38,9 +49,9 @@ const projects = [
 ];
 
 export default function Projects() {
-  const [filter, setFilter] = useState("all");
-  const [tagFilter, setTagFilter] = useState(null);
-  const [selected, setSelected] = useState(null);
+  const [filter, setFilter] = useState<string>("all");
+  const [tagFilter, setTagFilter] = useState<string | null>(null);
+  const [selected, setSelected] = useState<Project | null>(null);
   const [darkMode, setDarkMode] = useState(true);
 
   const filtered = projects.filter((p) => {
@@ -198,26 +209,26 @@ export default function Projects() {
           </div>
         )}
 
-        {selected && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 px-4">
-            <div className="bg-zinc-900 border border-zinc-700 rounded-xl max-w-md w-full p-6 space-y-4 relative animate-in fade-in zoom-in-90">
-              <button
-                onClick={() => setSelected(null)}
-                className="absolute top-2 right-2 text-zinc-500 hover:text-red-500"
-              >
-                <XCircle className="w-5 h-5" />
-              </button>
-              <img
-                src={selected.image}
-                alt={selected.title}
-                className="rounded w-full h-32 object-cover"
-              />
-              <h3 className="text-lg font-bold text-blue-300">
-                {selected.title}
-              </h3>
-              <p className="text-zinc-300">{selected.description}</p>
-              <ul className="flex flex-wrap gap-2 text-sm">
-                {selected.tech.map((t, i) => (
+          {selected && (
+            <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 px-4">
+              <div className="bg-zinc-900 border border-zinc-700 rounded-xl max-w-md w-full p-6 space-y-4 relative animate-in fade-in zoom-in-90">
+                <button
+                  onClick={() => setSelected(null)}
+                  className="absolute top-2 right-2 text-zinc-500 hover:text-red-500"
+                >
+                  <XCircle className="w-5 h-5" />
+                </button>
+                <img
+                  src={selected!.image}
+                  alt={selected!.title}
+                  className="rounded w-full h-32 object-cover"
+                />
+                <h3 className="text-lg font-bold text-blue-300">
+                  {selected!.title}
+                </h3>
+                <p className="text-zinc-300">{selected!.description}</p>
+                <ul className="flex flex-wrap gap-2 text-sm">
+                  {selected!.tech.map((t, i) => (
                   <li
                     key={i}
                     className="bg-zinc-800 border border-zinc-600 px-2 py-0.5 rounded text-zinc-200"
@@ -226,8 +237,8 @@ export default function Projects() {
                   </li>
                 ))}
               </ul>
-              <a
-                href={selected.link}
+                <a
+                  href={selected!.link}
                 target="_blank"
                 className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 text-sm"
               >
