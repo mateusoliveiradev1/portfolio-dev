@@ -1,1 +1,24 @@
 node_modules
+# Next.js build output
+.next/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Other Node.js artifacts
+build
+dist/
+
+# Environment files
+.env.local
+.env.*.local
+
