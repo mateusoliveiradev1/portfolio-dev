@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Mail,
@@ -16,11 +16,11 @@ export default function Contact() {
   const [status, setStatus] = useState("idle");
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("sending");
 
-    const form = e.target;
+    const form = e.currentTarget;
     const data = new FormData(form);
 
     const res = await fetch("https://formspree.io/f/mkndwnen", {
